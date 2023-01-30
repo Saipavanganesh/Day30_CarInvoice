@@ -23,8 +23,15 @@ class CarInvoiceTest {
         List<Integer> list = Arrays.asList(carInvoice.calculateFare(5,13),
                 carInvoice.calculateFare(7,16),
                 carInvoice.calculateFare(3,9));
-        Assertions.assertEquals(3,carInvoice.enhancedInvoice(list).get(0));
-        Assertions.assertEquals(203,carInvoice.enhancedInvoice(list).get(1));
-        Assertions.assertEquals(67,carInvoice.enhancedInvoice(list).get(2));
+        Assertions.assertEquals(3,carInvoice.enhancedInvoice(1,list).get(0));
+        Assertions.assertEquals(203,carInvoice.enhancedInvoice(1,list).get(1));
+        Assertions.assertEquals(67,carInvoice.enhancedInvoice(1,list).get(2));
+    }
+    @Test
+    public void fareOnePremiumRide(){
+        int distance = 5;
+        int timeInMin = 13;
+        int totalFare = carInvoice.calculatePremiumFare(distance, timeInMin);
+        Assertions.assertEquals(121, totalFare);
     }
 }

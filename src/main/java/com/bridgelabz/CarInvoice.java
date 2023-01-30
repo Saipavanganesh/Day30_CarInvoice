@@ -11,8 +11,16 @@ public class CarInvoice {
     ArrayList<RideRepository> rideRepositoriesList = new ArrayList<>();
     final static int farePerKm = 10;
     final static int minFare = 5;
+    final static int farePerKmPremium = 15;
+    final static int farePerMinutePremium = 2;
+
+    final static int minFarePremium = 20;
     public int calculateFare(int distance, int timeInMin){
         int totalFare = (distance * farePerKm) + (timeInMin) + minFare;
+        return totalFare;
+    }
+    public int calculatePremiumFare(int distance, int timeInMin){
+        int totalFare = (distance * farePerKmPremium) + (timeInMin * farePerMinutePremium) + minFarePremium;
         return totalFare;
     }
     public void getUserDetails(){

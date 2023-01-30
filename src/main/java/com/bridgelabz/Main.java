@@ -14,6 +14,8 @@ public class Main {
             int option = sc.nextInt();
             switch(option){
                 case 1:
+                    System.out.println("Normal ride or Premium ride??\nEnter '1' for Normal ride and '2' for Premium ride");
+                    int rideType = sc.nextInt();
                     List<Integer> allRides = new ArrayList<>();
                     List<Integer> userDetails = new ArrayList<>();
                     System.out.println("Enter how many rides you took");
@@ -25,7 +27,14 @@ public class Main {
                         int distance = sc.nextInt();
                         System.out.println("Enter total no.of minutes taken in one ride");
                         int min = sc.nextInt();
-                        allRides.add(carInvoice.calculateFare(distance,min));
+                        if(rideType == 1){
+                            allRides.add(carInvoice.calculateFare(distance,min));
+                        } else if (rideType == 2) {
+                            allRides.add(carInvoice.calculatePremiumFare(distance,min));
+                        }
+                        else{
+                            System.out.println("Enter correct option for Normal ride or Premium ride");
+                        }
                     }
                     System.out.println("Fares for rides are");
                     for(int i = 0; i < allRides.size(); i++){
