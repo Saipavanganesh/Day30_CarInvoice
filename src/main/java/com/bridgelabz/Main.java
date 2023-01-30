@@ -15,6 +15,7 @@ public class Main {
             switch(option){
                 case 1:
                     List<Integer> allRides = new ArrayList<>();
+                    List<Integer> userDetails = new ArrayList<>();
                     System.out.println("Enter how many rides you took");
                     int rides = sc.nextInt();
                     System.out.println("Enter your user ID");
@@ -30,9 +31,10 @@ public class Main {
                     for(int i = 0; i < allRides.size(); i++){
                         System.out.println(allRides.get(i));
                     }
-                    System.out.println("Total no.of rides is " + carInvoice.enhancedInvoice(userID,allRides).get(0)
-                            + "\nTotal fare is " + carInvoice.enhancedInvoice(userID,allRides).get(1)
-                            + "\nAverage fare per ride is " + carInvoice.enhancedInvoice(userID,allRides).get(2));
+                    userDetails = carInvoice.enhancedInvoice(userID,allRides);
+                    System.out.println("Total no.of rides is " + userDetails.get(0)
+                            + "\nTotal fare is " + userDetails.get(1)
+                            + "\nAverage fare per ride is " + userDetails.get(2));
                     System.out.println();
                     break;
                 case 2:
